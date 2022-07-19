@@ -1,19 +1,26 @@
 <script setup>
-import { ref, onMounted } from "vue";
-import { newPlot } from "plotly.js-dist-min";
+import { ref, onMounted, watch } from "vue";
+import { newPlot, deleteTraces, addTraces } from "plotly.js-dist-min";
 
 const props = defineProps(["id", "data", "layout", "config"]);
+const emit = defineEmits(["doneBuilding"]);
 
-const plotlyId = ref(`plotly-${props.id}`);
-
-onMounted(() => {
-  console.log("built");
-  newPlot(plotlyId.value, props.data, props.layout, props.config);
+onMounted(async () => {
+  await newPlot(props.id, props.data, props.layout, props.config);
+  emit("doneBuilding", props.id);
 });
+
+watch(
+  () => props.data,
+  (newVal, oldVal) => {
+    deleteTraces(props.id, [...Array(oldVal.length).keys()]);
+    addTraces(props.id, newVal);
+  }
+);
 </script>
 
 <template>
-  <div :id="plotlyId"></div>
+  <div :id="id"></div>
 </template>
 
 <style scoped></style>
