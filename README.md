@@ -1,14 +1,13 @@
-# ptolomy
+# Ptolomy UI
 
-This template should help get you started developing with Vue 3 in Vite.
+The front end for Ptolomy API.
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+> TODO: create searchable field for gene filters
+> TODO: style the Data tab similar to the MMCA webpage
+> TODO: add loading animations
+> TODO: add functionality for bar charts
+> TODO: add annotations for multiple gene expressions
+> TODO: add button to delete plots
 
 ## Project Setup
 
@@ -27,3 +26,5 @@ npm run dev
 ```sh
 npm run build
 ```
+
+ 
